@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #a5b4fc; /* Background color of the entire page */
+            color: #333333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6366f1;
+            color: #ffffff;
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .dark-mode .navbar {
+            background-color: #444444;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+
+        .dark-mode .navbar a {
+            color: #cccccc;
+        }
+
+        .navbar a:hover {
+            transform: scale(1.1); /* Scale the link up */
+    color: #15d6d3; /* Change color on hover */
+        }
+
+        .container {
+            margin-top: 70px; /* Space for the fixed navbar */
+            padding: 20px;
+        }
+
+        .overview-section, .pricing-box {
+            padding: 20px;
+            background-color: #334155;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .dark-mode .overview-section, .dark-mode .pricing-box {
+            background-color: #444444;
+            color: #ffffff;
+        }
+
+        .overview-section h2, .pricing-box h2, .pricing-box h3 {
+            color: #6366f1; /* Color for section headings */
+        }
+
+        .dark-mode .overview-section h2, .dark-mode .pricing-box h2, .dark-mode .pricing-box h3 {
+            color: #9e9e9e;
+        }
+
+        .overview-section p, .pricing-box p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .dark-mode .overview-section p, .dark-mode .pricing-box p {
+            color: #e0e0e0;
+        }
+
+        .api-pricing table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .api-pricing table, .api-pricing th, .api-pricing td {
+            border: 1px solid #cccccc;
+        }
+
+        .dark-mode .api-pricing table, .dark-mode .api-pricing th, .dark-mode .api-pricing td {
+            border-color: #666666;
+        }
+
+        .api-pricing th, .api-pricing td {
+            padding: 12px;
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .api-pricing th {
+            background-color: #6366f1;
+            color: #ffffff;
+        }
+
+        .dark-mode .api-pricing th {
+            background-color: #555555;
+        }
+
+        .toggle-button {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .dark-mode .toggle-button {
+            background-color: #777777;
+        }
+
+        .toggle-button:hover {
+            background-color: transparent ;
+        }
+
+        .dark-mode .toggle-button:hover {
+            background-color: #666666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+            }
+
+            .overview-section, .pricing-box {
+                padding: 15px;
+            }
+
+            .api-pricing table, .api-pricing th, .api-pricing td {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .overview-section h2, .pricing-box h2, .pricing-box h3 {
+                font-size: 24px;
+            }
+
+            .overview-section p, .pricing-box p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 5px;
+            }
+
+            .navbar a {
+                font-size: 16px;
+            }
+
+            .overview-section, .pricing-box {
+                padding: 10px;
+            }
+
+            .api-pricing table, .api-pricing th, .api-pricing td {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            .overview-section h2, .pricing-box h2, .pricing-box h3 {
+                font-size: 20px;
+            }
+
+            .overview-section p, .pricing-box p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#pricing-box" id="pricing-link">PRICING</a>
+        <button id="theme-toggle" class="toggle-button">Toggle Dark Mode</button>
+    </div>
+
+    <div class="container">
+        <div id="overview" class="overview-section">
+            <h2>Overview</h2>
+            <p>The Book Generator API allows you to generate books on various topics using different language models. This documentation provides details on how to use the API, including authentication, available endpoints, and code examples.</p>
+        </div>
+
+        <div id="pricing-box" class="pricing-box">
+            <section class="api-pricing">
+                <h2>API Pricing</h2>
+                <p>Our API pricing is based on the model used and the number of tokens processed. Here's a breakdown of the costs:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>API</th>
+                            <th>MODEL</th>
+                            <th>PRICE PER 1K TOKENS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OpenAI</td>
+                            <td>GPT-3.5</td>
+                            <td>$0.002</td>
+                        </tr>
+                        <tr>
+                            <td>OpenAI</td>
+                            <td>GPT-4</td>
+                            <td>$0.03</td>
+                        </tr>
+                        <tr>
+                            <td>Together AI</td>
+                            <td>Llama-2-70b</td>
+                            <td>$0.0008</td>
+                        </tr>
+                        <tr>
+                            <td>Together AI</td>
+                            <td>Llama-2-13b</td>
+                            <td>$0.0006</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="pricing-section">
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <h3>Token Estimation</h3>
+                        <p>On average, 1 token is approximately 4 characters or 0.75 words. For precise pricing, we recommend using our token calculator tool.</p>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Billing</h3>
+                        <p>You will only be charged for the tokens used in generating the book. The API tracks token usage and bills accordingly. Detailed usage reports are available in your account dashboard.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            toggleButton.textContent = isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+        });
+
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1); // Get the target ID
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html
